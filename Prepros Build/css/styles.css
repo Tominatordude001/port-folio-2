@@ -1,0 +1,246 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
+
+@font-face {
+  font-family: 'Roboto';
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	overflow-x:hidden;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#wrap {
+	display: block;
+	background-color: /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e2e2e2+0,282828+100 */
+	background: rgb(226,226,226); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(40,40,40,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(226,226,226,1) 0%,rgba(40,40,40,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(226,226,226,1) 0%,rgba(40,40,40,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#282828',GradientType=0 ); /* IE6-9 */;
+}
+
+
+.image-container-1, .image-container-2, .image-container-3 { /*---- these hold the SVGs ----*/
+	position: absolute;
+	display: block;
+	height: 100%;
+	width: auto;
+	top: 0px;
+	right: -1000px; /*---- starts off-screen to the right ----*/
+	/*overflow: hidden;*/
+	/*background-color: yellow;*/
+}
+
+.image-container-3 {
+	/*background-color: yellow;*/
+	/*display: none;*/
+	/*width: 00px;*/
+	overflow: hidden;
+}
+
+.image-container-two { /*---- this holds the boat svg || change two --> 2 for testing ----*/
+	position: absolute;
+	display: block;
+	height: 100%;
+	width: auto;
+	top: 0px;
+	right: -1000px; /*---- starts off-screen to the right ----*/
+	/*overflow: hidden;*/
+	/*background-color: aqua;*/
+}
+
+.image-container-one { /*---- this holds the leaf svg || change three --> 3 for testing ----*/
+	position: absolute;
+	display: block;
+	height: 100%;
+	width: auto;
+	top: 0px;
+	right: -1000px; /*---- starts off-screen to the right ----*/
+	/*overflow: hidden;*/
+	background-color: yellow;
+}
+
+#design, #print, #web { /*---- svg id's ----*/
+	display: block;
+	position: relative;
+	height: 100%;
+	width: auto;
+	filter: drop-shadow(-10px 0px 8px rgba(0,0,0,0.3));
+	/*background-color: red;*/
+}
+
+#poly-print-color, #poly-web-color { /*---- id's inside svg ----*/
+	opacity: .8;
+	transition: all .5s ease;
+}
+
+#poly-print-color:hover {
+	opacity: .4;
+}
+
+#poly-design-color {
+	opacity: .9;
+	transition: all .5s ease;
+}
+
+#poly-design-color:hover {
+	opacity: .72;
+}
+
+#poly-web-color:hover {
+	opacity: .7;
+}
+
+#design-text {
+	opacity: .5;
+	pointer-events: none;
+	fill: yellow;
+	transition: all .5s ease;
+}
+
+#print-text {
+	opacity: .6;
+	pointer-events: none;
+	fill: aqua;
+}
+
+#web-text {
+	opacity: .9;
+	pointer-events: none;
+	fill: #AAFF44;
+}
+
+#poly-design-color:hover ~ #design-text {
+	opacity: .9;
+}
+
+#poly-print-color:hover ~ #print-text {
+	opacity: .9;
+}
+
+#poly-web-color:hover ~ #web-text {
+	opacity: 1;
+}
+
+.inner-box-1 {
+	position: relative;
+	display: block;
+	width: 85%;
+	margin-top: -8rem;
+	/*background-color: gray;*/
+}
+
+.my-name { /*---- box that holds DG svg ----*/
+	position: relative;
+	display: block;
+	width: 60♣%;
+	max-width: 320px;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	/*overflow: hidden;*/
+	/*background-color: green;*/
+}
+
+.design-stuff { /*---- I design stuff ----*/
+	position: relative;
+	display: block;
+	font-family: 'Roboto';
+	font-size: 2.2vw;
+	font-weight: 100;
+	text-align: center;
+	color: #fff;
+	width: 50%;
+	margin: 2rem auto;
+	/*background-color: blue;*/
+}
+
+#david_gonzalez { /*---- svg id ----*/
+	display: block;
+	height: auto;
+	width: 100%;
+	filter: drop-shadow( 0px 12px 3px rgba(0,0,0,0.2));
+}
+
+#david_gonzalez path { /*---- svg id ----*/
+	/*opacity: 0;*/
+	/*fill: #D1D1D1;*/
+}
+
+.box1 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*background-color: red;*/
+	opacity: 0;
+}
+
+.box2 {
+	/*background-color: blue;*/
+}
+
+.design-stuff {
+	opacity: 0;
+}
+
+#wrap {
+	display: grid;
+	grid-template-columns: 1fr 1000px;
+	height: 100vh;
+	width: 100vw;
+	position: relative;                 /*---- here! ----*/
+	/*background: gray;*/
+	overflow: hidden;
+	/*float: left;*/
+}
+
+.scrollbar {
+	position: absolute;
+	top: 0px;
+	left: 100px;
+	width: 200px;
+	height: 150px;
+	overflow: scroll;
+	background-color: orange;
+}
+
+.scrollbar p {
+	width: 100%;
+	height: 200px;
+	background-color: blue;
+
+}
+
+.next {
+	display: block;
+	/*position: absolute;*/
+	/*left: 200px;*/
+	/*top: 200px;*/
+	height: 600px;
+	width: 100vw;
+	background-color: aqua;
+}
+
+.info { /*---- for testing ----*/
+	position: absolute;
+	display: block;
+	width: 400px;
+	height: 40px;
+	left: 700px;
+	background-color: pink;
+	text-align: center;
+	font-size: 20px;
+	z-index: 100;
+}
+
+
