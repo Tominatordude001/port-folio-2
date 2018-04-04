@@ -143,7 +143,7 @@
 
 
 	
-	/*-------- on resize re-adjust positions using vanilla js (not with jquery) -------- */
+	// -------- on resize re-adjust positions using vanilla js (not with jquery) -------- 
 	$(window).resize(function(){
 
 		var windowWidth = window.innerWidth; // viewport width
@@ -205,11 +205,11 @@
 			document.getElementById("wrap").style.gridTemplateColumns = gtc;
 
 
-				/*--------- resizing test ---------*/
+				// --------- resizing test ---------
 				var test = adj_print_left + " ------- " + adj_print_right;
 				// var test = $("#wrap").css("left");
 			    $(".info").html(test); // ==> Keep 
-				/*--------- testing end ---------*/
+				// --------- testing end ---------
 
 
 	    };
