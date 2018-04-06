@@ -19,7 +19,8 @@
 			var box2_init_width = (windowWidth/1.66)-40;
 		} else { // long layout
 			var box2_init_width = shape_width*2.15;
-		};
+		}; 
+
 
 		var gtc =  "1fr " + box2_init_width + "px"; // gtc --> grid-template-columns
 		document.getElementById("wrap").style.gridTemplateColumns = gtc;
@@ -27,18 +28,19 @@
 		TweenMax.staggerFrom("#david_gonzalez #david path", 0.5, {opacity:0, scale:.1, y:200, delay:0.5}, 0.2);
 		TweenMax.staggerFrom("#david_gonzalez #gonzalez path", 0.5, {opacity:0, scale:3, rotation:-180, delay:1.5}, 0.1);
 
-			/*--------- initial testing ---------*/
+			// ───────── initial testing start ─────────
+			//#region
 			// var test = $("body").outerWidth();
 			// var test = $(".scrollbar").css("width");
-			var test = adj_shape_width*3;
-			var test2 = box2_init_width;
+			// var test = adj_shape_width*3;
+			// var test2 = box2_init_width;
 			// var test2 = $("#para").css("width");
-		    // $(".info").html((test) + " ------ " + test2); // ==> don't delete yet 
-			/*--------- testing end ---------*/
+			// $(".info").html((test) + " ------ " + test2); // ==> don't delete yet 
+			//#endregion
+			// ───────── initial testing end ─────────
 
-
-		// ==> =============================== START ===============================
-		
+		// * ────────> move parallelograms into position on load <────────
+		// #region
 		// move parallelograms into position on viewport after window.load using GSAP
 		var adj_shape_width = shape_width*.78;
 		var init_group_width = windowWidth/1.66;
@@ -52,11 +54,11 @@
 			TweenLite.to(".image-container-1", .5, {x:-(adj_shape_width*2.9), delay:.4});    // design block
 			TweenLite.to(".image-container-2", .5, {x:-(adj_shape_width*2), delay:.2});      // print block
 			TweenLite.to(".image-container-3", .5, {x:-(shape_width*.84)});                  // web block
-		};
+		}; 
+		// #endregion 
 
-		// ==> =============================== END ===============================
 		
-		// ==================== START blur text (I design stuff) animation ======================= 
+		// * ────────> START blur text (I design stuff) animation <────────
 		var timeline = TweenMax.from("#hue1feGaussianBlur", 2, {
 			opacity:0,
 		 	paused: true,
@@ -64,14 +66,14 @@
 		 	delay:2,
 		});
 		timeline.play();
-		// =================================  END blur animation =================================
+		// ──────────────────────── END blur animation ──────────────────── 
 		
 
 		TweenLite.to("#poly-print-gray", .2, {opacity:0}); // gray starts down out of the way
 		// TweenLite.to("#poly-print-gray", .2, {x: 138, y:-1000, opacity:0}); // gray starts up out of the way
 
-		// ========================  Mouse over events =========================== 
-		$("#poly-design-color").on("mouseover", function() { // on mouseout orange gradient
+		// * ──────────────> Mouse over/out events <──────────────
+		$("#poly-design-color").on("mouseover", function() {
 
 			// TweenLite.to("#poly-print-color", .2, {x: 138, y:-1000});
 			TweenLite.to("#poly-print-gray", .2, {x: 0, y:0, opacity:0.8});
@@ -86,7 +88,7 @@
 			// TweenLite.to("#ducky", .1, {scale:1.15, transformOrigin:"50% 50%", ease:Power1.easeOut}); // I don't like
 		})
 
-		$("#poly-design-color").on("mouseout", function() { // on mouseout orange gradient
+		$("#poly-design-color").on("mouseout", function() {
 			TweenLite.to("#poly-print-color", .2, {x: 0, y:0});
 			TweenLite.to("#poly-print-gray", .2, {opacity:0.0});
 			TweenLite.to("#print-text", .2, {opacity:0.6});
@@ -96,7 +98,7 @@
 			TweenLite.to("#web-text", .2, {opacity:0.6});
 		});
 
-		$("#poly-print-color").on("mouseover", function() { // on mouseout orange gradient
+		$("#poly-print-color").on("mouseover", function() {
 
 			TweenLite.to("#poly-design-gray", .2, {x: 0, y:0, opacity:0.8});
 			TweenLite.to("#design-text", .2, {opacity:0.1});
@@ -107,7 +109,7 @@
 			$(this).css({cursor:"pointer"});
 		});
 
-		$("#poly-print-color").on("mouseout", function() { // on mouseout orange gradient
+		$("#poly-print-color").on("mouseout", function() {
 
 			TweenLite.to("#poly-design-color", .2, {x: 0, y:0});
 			TweenLite.to("#poly-design-gray", .2, {opacity:0.0});
@@ -118,7 +120,7 @@
 			TweenLite.to("#web-text", .2, {opacity:0.6});
 		});
 
-		$("#poly-web-color").on("mouseover", function() { // on mouseout orange gradient
+		$("#poly-web-color").on("mouseover", function() {
 			TweenLite.to("#poly-design-gray", .2, {x: 0, y:0, opacity:0.8});
 			TweenLite.to("#design-text", .2, {opacity:0.1});
 
@@ -129,7 +131,7 @@
 			// $("#web-text").css({opacity:0});
 		});
 
-		$("#poly-web-color").on("mouseout", function() { // on mouseout orange gradient
+		$("#poly-web-color").on("mouseout", function() {
 			TweenLite.to("#poly-design-color", .2, {x: 0, y:0});
 			TweenLite.to("#poly-design-gray", .2, {opacity:0.0});
 			TweenLite.to("#design-text", .2, {opacity:0.6});
@@ -139,11 +141,11 @@
 			TweenLite.to("#print-text", .2, {opacity:0.6});
 		});
 
-	}); // .onload end ------------------------------------------------------
+	}); // .onload end ──────────────────────────────────────────
 
 
 	
-	// -------- on resize re-adjust positions using vanilla js (not with jquery) -------- 
+	// ───────── on resize re-adjust positions using vanilla js (not with jquery) ─────────
 	$(window).resize(function(){
 
 		var windowWidth = window.innerWidth; // viewport width
@@ -154,17 +156,22 @@
 		var adj_group_width = windowWidth/1.66;
 
 		// ─────────────────────────────── save ──────────────────────────────────
+		// #region 
 		// var right_pos_of_design = $("#id_design").css("right").replace(/[^-\d\.]/g, '');
 		// var right_pos_of_print = ((right_pos_of_design-right_pos_of_web)/2)-100;
-		// var right_pos_of_web = $("#id_web").css("right").replace(/[^-\d\.]/g, '');  // ==> don't delete
+		// var right_pos_of_web = $("#id_web").css("right").replace(/[^-\d\.]/g, '');  // ==> don't delete 
+		// #endregion
 		// ─────────────────────────────── end save ───────────────────────────────
 
-		/*--------- testing ---------*/
+ 		// ────────── testing ──────────
+		// #region
 		// var testing_pos = windowWidth-shape_width*.84; // if using CSS left
 	    // $(".info").html("left = " + testing_pos + " and width of 3 is " + shape_width);
-	    // $(".info2").css({position:"absolute", left:testing_pos}); // ==> Don't delete!!
-		/*--------- testing end ---------*/
+		// $(".info2").css({position:"absolute", left:testing_pos}); // ==> Don't delete!! 
+		// #endregion 
+		// ────────── testing end ──────────
 
+		// * ────────────────>  re-positioning on resize <────────────────
 	    function rePosition() {  // don't use jquery for re-positioning on resize
 
 	    	if ((adj_shape_width*3) >= (windowWidth/1.45)) { // short layout
@@ -178,7 +185,7 @@
 	    		var adj_design_left_no_px = ((windowWidth-box2_adj_width)*.94);
 	    		var adj_print_left = adj_design_left_no_px + (box2_adj_width/3) + "px";
 	    		var adj_web_left = adj_design_left_no_px + 1.95*(box2_adj_width/3) + "px";
-	    	} else { // long layout
+			} else { // long layout
 	    		var box2_adj_width = shape_width*2.15;
 	    		// ────────── set left to auto ──────────
 	    		var adj_design_left = "auto";
@@ -205,17 +212,15 @@
 			document.getElementById("wrap").style.gridTemplateColumns = gtc;
 
 
-				// --------- resizing test ---------
-				var test = adj_print_left + " ------- " + adj_print_right;
+				// ───────── resizing test ─────────
+				// var test = adj_print_left + " ------- " + adj_print_right;
 				// var test = $("#wrap").css("left");
-			    $(".info").html(test); // ==> Keep 
-				// --------- testing end ---------
+			    // $(".info").html(test); // ==> Keep 
+				// ───────── testing end ─────────
 
 
 	    };
-	    rePosition();
-
-		
+	    rePosition()
 
 
 	}); // resize end
