@@ -3,6 +3,28 @@
 	// TweenLite.to("#poly-design-color", .2, {x: 138, y:-1000, opacity:0}); // starts out at top offscreen with opacity 0
 
 	$(window).load(function() {
+
+		if ( $(window).width() > 739) {
+			//Add your javascript for large screens here 
+			Widescreen();
+		}
+		else {
+			//Add your javascript for small screens here 
+			alertNarrow();
+		};
+		
+		function alertWide() {
+			alert("Wide screen");
+		};
+
+		function alertNarrow() {
+			alert("Narrow screen");
+		};
+
+		function Widescreen() {
+		
+			// * ────────> Widescreen Function <────────
+			//#region
 		var windowWidth = window.innerWidth; // viewport width
 		var windowHeight = window.innerHeight; // viewport width
 		// $("body").css({width:windowWidth});
@@ -29,18 +51,15 @@
 		TweenMax.staggerFrom("#david_gonzalez #gonzalez path", 0.5, {opacity:0, scale:3, rotation:-180, delay:1.5}, 0.1);
 
 			// ───────── initial testing start ─────────
-			//#region
 			// var test = $("body").outerWidth();
 			// var test = $(".scrollbar").css("width");
 			// var test = adj_shape_width*3;
 			// var test2 = box2_init_width;
 			// var test2 = $("#para").css("width");
 			// $(".info").html((test) + " ------ " + test2); // ==> don't delete yet 
-			//#endregion
 			// ───────── initial testing end ─────────
 
 		// * ────────> move parallelograms into position on load <────────
-		// #region
 		// move parallelograms into position on viewport after window.load using GSAP
 		var adj_shape_width = shape_width*.78;
 		var init_group_width = windowWidth/1.66;
@@ -55,7 +74,6 @@
 			TweenLite.to(".image-container-2", .5, {x:-(adj_shape_width*2), delay:.2});      // print block
 			TweenLite.to(".image-container-3", .5, {x:-(shape_width*.84)});                  // web block
 		}; 
-		// #endregion 
 
 		
 		// * ────────> START blur text (I design stuff) animation <────────
@@ -141,6 +159,10 @@
 			TweenLite.to("#print-text", .2, {opacity:0.6});
 		});
 
+		//#endregion
+
+		};
+
 	}); // .onload end ──────────────────────────────────────────
 
 
@@ -155,21 +177,16 @@
 		var adj_shape_width = shape_width*.78;
 		var adj_group_width = windowWidth/1.66;
 
-		// ─────────────────────────────── save ──────────────────────────────────
-		// #region 
-		// var right_pos_of_design = $("#id_design").css("right").replace(/[^-\d\.]/g, '');
-		// var right_pos_of_print = ((right_pos_of_design-right_pos_of_web)/2)-100;
-		// var right_pos_of_web = $("#id_web").css("right").replace(/[^-\d\.]/g, '');  // ==> don't delete 
-		// #endregion
-		// ─────────────────────────────── end save ───────────────────────────────
+		if ( $(window).width() > 739) {
+			//Add your javascript for large screens here 
+			rePosition();
+		}
+		else {
+			//Add your javascript for small screens here 
+			alert('Dude!');
+		};
 
- 		// ────────── testing ──────────
-		// #region
-		// var testing_pos = windowWidth-shape_width*.84; // if using CSS left
-	    // $(".info").html("left = " + testing_pos + " and width of 3 is " + shape_width);
-		// $(".info2").css({position:"absolute", left:testing_pos}); // ==> Don't delete!! 
-		// #endregion 
-		// ────────── testing end ──────────
+
 
 		// * ────────────────>  re-positioning on resize <────────────────
 	    function rePosition() {  // don't use jquery for re-positioning on resize
@@ -220,7 +237,7 @@
 
 
 	    };
-	    rePosition()
+	    // rePosition();
 
 
 	}); // resize end
