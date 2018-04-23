@@ -152,7 +152,7 @@
 				TweenLite.to("#poly-print-color", .2, {x: 0, y:0});
 				TweenLite.to("#poly-print-gray", .2, {opacity:0.0});
 				TweenLite.to("#print-text", .2, {opacity:0.6});
-			});
+			}); 
 
 		//#endregion
 		}
