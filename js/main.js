@@ -29,8 +29,6 @@
 		// * ────────> Widescreen Function <────────
 		//#region
 			var windowWidth = window.innerWidth; // viewport width
-			// var windowHeight = window.innerHeight; // viewport width
-			// $("body").css({width:windowWidth});
 			
 			// initial position of parallelograms just outside of viewport to the right
 			var shape_width = $(".image-container-1").width();
@@ -64,7 +62,6 @@
 
 			// * ────────> move parallelograms into position on load <────────
 			// move parallelograms into position on viewport after window.load using GSAP
-			// var adj_shape_width = shape_width*0.78;
 			var init_group_width = windowWidth/1.66;
 
 			if ((adj_shape_width*3) >= (windowWidth/1.45)) { // short layout
@@ -76,9 +73,9 @@
 				TweenLite.to(".image-container-2", .5, {x:-(adj_shape_width*2), delay:.2});      // print block
 				TweenLite.to(".image-container-3", .5, {x:-(shape_width*.84)});                  // web block
 			}
-
 		
 			// * ────────> START blur text (I design stuff) animation <────────
+			// https://codepen.io/jonathan/pen/pjOKxo?editors=0010 // <─────
 			var timeline = TweenMax.from("#hue1feGaussianBlur", 2, {
 				opacity:0,
 				paused: true,
@@ -87,10 +84,6 @@
 			});
 			timeline.play();
 			// ──────────────────────── END blur animation ────────────────────
-			
-
-			TweenLite.to("#poly-print-gray", .2, {opacity:0}); // gray starts down out of the way
-			// TweenLite.to("#poly-print-gray", .2, {x: 138, y:-1000, opacity:0}); // gray starts up out of the way
 
 			// * ──────────────> Mouse over/out events <──────────────
 			$("#poly-design-color").on("mouseover", function() {
@@ -162,7 +155,6 @@
 			});
 
 		//#endregion
-
 		}
 
 	}); // .onload end ──────────────────────────────────────────
