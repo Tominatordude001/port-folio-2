@@ -4,6 +4,7 @@
 	/*global TweenLite:true*/
 	/*global TweenMax:true*/
 	/*global jQuery:true*/
+	/*eslint no-unused-vars: ["error", { "args": "none" }]*/
 
 	$(window).load(function() {
 
@@ -15,8 +16,9 @@
 			//Add your javascript for small screens here
 			alertNarrow();
 		}
-		
-		function alertWide() {
+	
+		// | 51d4a992-b807-43e1-85f0-50a025e0cbf4
+		function alertWide() { // eslint-disable-line no-unused-vars
 			alert("Wide screen");
 		}
 
@@ -83,7 +85,7 @@
 				delay:2,
 			});
 			timeline.play();
-			// ──────────────────────── END blur animation ────────────────────
+			// ─ ────────────────────── END blur animation ────────────────────
 
 			// * ──────────────> Mouse over/out events <──────────────
 			$("#poly-design-color").on("mouseover", function() {
@@ -157,7 +159,7 @@
 		//#endregion
 		}
 
-	}); // .onload end ──────────────────────────────────────────
+	}); // .onload end // ──────────────────────────────────────────
 
 
 	
@@ -172,23 +174,23 @@
 
 		if ( $(window).width() > 739) { // adjust layout on resize for desktop
 			rePosition();
-		}
-		else { // adjust layout on resize for mobile
+		} else { // adjust layout on resize for mobile
 			alert("Hey!");
 			// mobileSetup();
 		}
 
-		// * ────────────────>  re-positioning on resize <────────────────
+		// * ────────────────>  re-positioning on resize on desktop <────────────────
 		function rePosition() {  // don't use jquery for re-positioning on resize
 
 			var box2_adj_width;
-			var adj_design_right;
 			var adj_design_left;
+			var adj_design_right;
 			var adj_print_left;
+			var adj_print_right;
 			var adj_web_left;
 			var adj_web_right;
-			var adj_print_right;
 			var adj_design_left_no_px;
+
 			if ((adj_shape_width*3) >= (windowWidth/1.45)) { // short layout
 				box2_adj_width = (windowWidth/1.66)-40;
 				// ────────── set right to auto ──────────
@@ -212,6 +214,7 @@
 				adj_web_right = -shape_width*.2 + "px"; 
 			}
 
+			// If mobile, origin is set to left. If desktop, origin is set to right  
 			document.getElementById("id_design").style.cssText = "position:absolute;display:block;";
 			document.getElementById("id_design").style.right   = adj_design_right;
 			document.getElementById("id_design").style.left    = adj_design_left;
@@ -240,9 +243,11 @@
 
 
 		}
-		// rePosition();
+		// rePosition(); // < ───── this line for testing only
 
 
 	}); // resize end
 
 })(jQuery);  // just needed if using jQuery
+
+
