@@ -90,17 +90,13 @@
 			// * ──────────────> Mouse over/out events <──────────────
 			$("#poly-design-color").on("mouseover", function() {
 
-				// TweenLite.to("#poly-print-color", .2, {x: 138, y:-1000});
 				TweenLite.to("#poly-print-gray", .2, {x: 0, y:0, opacity:0.8});
 				TweenLite.to("#print-text", .2, {opacity:0.1});
 
-				// TweenLite.to("#poly-web-color", .2, {x: 138, y:-1000, delay:.1});
 				TweenLite.to("#poly-web-gray", .2, {x: 0, y:0, opacity:0.8});
 				TweenLite.to("#web-text", .2, {opacity:0.1});
 
 				$(this).css({cursor:"pointer"});
-
-				// TweenLite.to("#ducky", .1, {scale:1.15, transformOrigin:"50% 50%", ease:Power1.easeOut}); // I don't like
 			});
 
 			$("#poly-design-color").on("mouseout", function() {
@@ -143,7 +139,6 @@
 				TweenLite.to("#print-text", .2, {opacity:0.1});
 
 				$(this).css({cursor:"pointer"});
-				// $("#web-text").css({opacity:0});
 			});
 
 			$("#poly-web-color").on("mouseout", function() {
@@ -249,5 +244,4 @@
 	}); // resize end
 
 })(jQuery);  // just needed if using jQuery
-
 
